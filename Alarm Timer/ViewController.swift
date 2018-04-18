@@ -24,13 +24,17 @@ class ViewController: UIViewController {
     
     func updateTime() {
         let date = Date()
+        //현재 시간을 만들수 있게 하는코드
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm:ss"
+        
         currentTimeLabel.text = formatter.string(from: date)
+        //현재시간 표시
         
         if currentTimeLabel.text == alarmTime.text {
             view.backgroundColor = UIColor.red
         }
+        //지정한 시간이 되면 빨간색으로 변경
     }
     //업데이트 함수 생성
     
@@ -43,7 +47,8 @@ class ViewController: UIViewController {
         
         myTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(myTimer) in
             self.updateTime()
-        })
+            //1초마다 변화
+       })
     }
     
 
